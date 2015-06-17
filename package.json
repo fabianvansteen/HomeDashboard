@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fabianvansteen/HomeDashboard#readme",
   "dependencies": {
+    "gulp": "^3.9.0",
     "require-dir": "^0.3.0"
   }
 }
