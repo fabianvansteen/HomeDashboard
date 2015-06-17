@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="homeApp">
+<head>
+    <meta name="author" content="Fabian van Steen">
+    <title>Home Control</title>
+    <link href="Content/Site.min.css" rel="stylesheet" />
+
+    <link href="Content/metro.min.css" rel="stylesheet" />
+    <link href="Content/metro-icons.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div style="float: left; height: 100%; background-color: #2C3E50;">
+
+        <ul class="sidebar2 dark" style="">
+            <li>
+                <a href="#/dashboard">
+                    <span class="mif-home icon"></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#/devices">
+                    <span class="mif-vpn-publ icon"></span>
+                    <span class="title">Devices</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#/bookmarks">
+                    <span class="mif-drive-eta icon"></span>
+                    <span class="title">Bookmarks</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#/rooms">
+                    <span class="mif-drive-eta icon"></span>
+                    <span class="title">Rooms</span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="grid responsive" style="margin: 0 0 0 10px; float: left;">
+
+        <div ng-view style="clear: both;"></div>
+
+    </div>
+
+
+
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/jquery-ui-1.11.4.js"></script>
+
+
+    <script src="scripts/metro.min.js"></script>
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/favoriteService.js"></script>
+    <script src="app/controller/bookmarkController.js"></script>
+    <script src="app/controller/dashboardController.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#sortable").sortable({
+                revert: true
+            });
+
+            $("#draggable").draggable({
+                connectToSortable: "#sortable",
+                helper: "clone",
+                revert: "invalid"
+            });
+            $("ul, li").disableSelection();
+        });
+    </script>
+
+
+</body>
+</html>
