@@ -11,6 +11,12 @@
             "isBuildCommand": true,
             "showOutput": "always",
             "problemMatcher": "$lessCompile"
+        },
+        {
+            "taskName": "test",
+            "isTestCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$lessCompile"
         }
     ]
 }
