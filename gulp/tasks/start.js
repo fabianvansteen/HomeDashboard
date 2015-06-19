@@ -8,7 +8,7 @@ gulp.task('start', function () {
     script: 'server.js',
     ext: 'js html',
     env: { 'NODE_ENV': 'development' },
-    tasks: ['jshint']
+    tasks: ['compile']
   })
     .on('restart', function () {
     console.log('restarted!');
