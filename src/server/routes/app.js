@@ -3,6 +3,6 @@
 exports.addRoutes = function (app, config) {
 
   app.all('/', function (req, res) {
-        res.sendfile('index.html', { root: config.server.distFolder });
+        res.sendFile('index.html', { root: config.server.distFolder });
   });
 };
