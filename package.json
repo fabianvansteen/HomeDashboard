@@ -19,8 +19,15 @@
   "dependencies": {
     "angular": "^1.4.1",
     "bootstrap": "^3.3.5",
+    "express": "^4.12.4",
     "gulp": "^3.9.0",
+    "gulp-exec": "^2.1.1",
+    "gulp-jshint": "^1.11.0",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-notify": "^2.2.0",
+    "gulp-open": "^0.3.2",
     "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.0",
     "less": "^2.5.1",
     "require-dir": "^0.3.0"
   }
