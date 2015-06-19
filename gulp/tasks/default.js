@@ -2,5 +2,4 @@
  
 var gulp = require('gulp');
 
-gulp.task('default', ['nodemon', 'browser-sync'], function () {
-});
+gulp.task('default', ['browser-sync'], function () {});
