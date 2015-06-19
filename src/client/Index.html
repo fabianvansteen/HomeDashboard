@@ -3,7 +3,7 @@
 <head>
     <meta name="author" content="Fabian van Steen">
     <title>Home Control</title>
-    <link href="less/site.css" rel="stylesheet" />
+    <link href="static/css/site.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -44,36 +44,13 @@
     </div>
 
 
+<!--
+    <script src="static/js/jquery-2.1.4.min.js"></script>
+    <script src="static/js/jquery-ui-1.11.4.js"></script>
+-->
 
-    <script src="Scripts/jquery-2.1.4.min.js"></script>
-    <script src="Scripts/jquery-ui-1.11.4.js"></script>
-
-
-    <script src="scripts/metro.min.js"></script>
-
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/angular-route.min.js"></script>
+    <script src="static/js/angular.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/services/favoriteService.js"></script>
-    <script src="app/controller/bookmarkController.js"></script>
-    <script src="app/controller/dashboardController.js"></script>
-
-
-    <script>
-        $(function () {
-            $("#sortable").sortable({
-                revert: true
-            });
-
-            $("#draggable").draggable({
-                connectToSortable: "#sortable",
-                helper: "clone",
-                revert: "invalid"
-            });
-            $("ul, li").disableSelection();
-        });
-    </script>
-
 
 </body>
 </html>
