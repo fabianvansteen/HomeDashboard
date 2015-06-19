@@ -18,6 +18,7 @@
   "homepage": "https://github.com/fabianvansteen/HomeDashboard#readme",
   "dependencies": {
     "angular": "^1.4.1",
+    "angular-route": "^1.4.1",
     "bootstrap": "^3.3.5",
     "express": "^4.12.4",
     "gulp": "^3.9.0",
