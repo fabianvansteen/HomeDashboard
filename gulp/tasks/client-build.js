@@ -30,4 +30,10 @@ gulp.task('client-build', function () {
 		'node_modules/metismenu/dist/metisMenu.min.css',
 		'node_modules/font-awesome/css/font-awesome.min.css'])
 		.pipe(gulp.dest('dist/client/assets/css'));
+		
+	// Fonts
+	gulp.src(['node_modules/font-awesome/fonts/fontawesome-webfont.ttf',
+		'node_modules/font-awesome/fonts/fontawesome-webfont.woff',
+		'node_modules/font-awesome/fonts/fontawesome-webfont.woff2'])
+		.pipe(gulp.dest('dist/client/assets/fonts'));
 });

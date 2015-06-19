@@ -8,6 +8,8 @@ var config = require('./config.js');
 require('./src/server/routes/app').addRoutes(app, config);
 require('./src/server/routes/static').addRoutes(app, config);
 
+require('./src/server/routes/api').addRoutes(app, config);
+
 app.get('/', function (req, res) {
   res.sendfile('index.html', { root: config.server.distFolder });
 });
