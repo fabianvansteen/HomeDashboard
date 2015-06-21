@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var path = require('path');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
 
 gulp.task('copy', function () {
 
@@ -38,6 +39,7 @@ gulp.task('copy', function () {
 		'node_modules/metismenu/dist/metisMenu.min.css',
 		'node_modules/font-awesome/css/font-awesome.min.css'])
 		.pipe(concat('prerequisites.min.css'))
+    	.pipe(minifyCss())
 		.pipe(gulp.dest('dist/client/assets/css'));
 		
 	// Fonts

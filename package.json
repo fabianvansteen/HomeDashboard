@@ -29,6 +29,7 @@
     "gulp-exec": "^2.1.1",
     "gulp-jshint": "^1.11.0",
     "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.6",
     "gulp-nodemon": "^2.0.3",
     "gulp-notify": "^2.2.0",
     "gulp-open": "^0.3.2",
