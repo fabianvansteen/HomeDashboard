@@ -19,19 +19,12 @@ gulp.task('copy', function () {
 		.pipe(gulp.dest('dist/client/assets/js'));
 
 	// JavaScript angular app
-	gulp.src(['src/client/app/app.js'])
-		.pipe(gulp.dest('dist/client/app'));
-	
-	// JavaScript angular services
-	gulp.src(['src/client/app/services/*.js'])
-		.pipe(concat('services.js'))
-		.pipe(gulp.dest('dist/client/app/services'));
-	
-	// JavaScript angular controllers
-	gulp.src(['src/client/app/controllers/*.js'])
-		.pipe(concat('controllers.js'))
-		.pipe(gulp.dest('dist/client/app/controllers'));
-		
+	gulp.src(['src/client/app/app.js',
+		'src/client/app/services/*.js',
+		'src/client/app/controllers/*.js'])
+		.pipe(concat('app.min.js'))
+		.pipe(gulp.dest('dist/client/app'));	
+			
 	// Assets
 	gulp.src(['src/client/assets/*.*'])
 		.pipe(gulp.dest('dist/client/assets'));
