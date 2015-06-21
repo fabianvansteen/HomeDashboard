@@ -14,6 +14,7 @@
         $timeout(tick, $scope.tickInterval);
     }
 
-    angular.module("homeDashboard").controller("TimeController", TimeController);
+    angular.module("homeDashboard")
+        .controller("TimeController", TimeController);
 
 })(angular);

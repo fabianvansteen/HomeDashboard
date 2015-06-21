@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="homeDashboard" ng-controller="dashboardController">
+<html lang="en" ng-app="homeDashboard" ng-controller="appController">
     
     <head>
         <meta charset="utf-8">
@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Home Dashboard</title>
+        <title>{{appInformation.application}}</title>
         <link rel="shortcut icon" href="favicon.ico" />
         <!-- Bootstrap Core CSS -->
         <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/#/index">{{version.application}}</a>
+                    <a class="navbar-brand" href="/#/index">{{appInformation.application}}</a>
                 </div>
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
@@ -64,9 +64,11 @@
         <script src="static/js/angular-route.min.js"></script>
         <!-- Custom JavaScript -->
         <script src="app/app.js"></script>
+        <script src="app/services/appService.js"></script>
         <script src="app/services/dashboardService.js"></script>
+        <script src="app/controller/appController.js"></script>
         <script src="app/controller/dashboardController.js"></script>
-            <script src="app/controller/timeController.js"></script>
+        <script src="app/controller/timeController.js"></script>
     </body>
 
 </html>

@@ -2,21 +2,21 @@
 
 exports.addRoutes = function (app, config) {
 
-    var VersionInfo = (function () {
-        function VersionInfo(parameters) {
+    var AppInformation = (function () {
+        function AppInformation(parameters) {
             this.application = parameters.application;
             this.version = parameters.version;
         }
-        return VersionInfo;
+        return AppInformation;
     })();
 
-    var versionInfo = new VersionInfo({ application: 'Home dashboard', version: '1.0.0' });
-
-    /**
-    * HTTP GET /api/dashboard
-    * Returns: ?
+    var appInformation = new AppInformation({ application: 'Home dashboard', version: '1.0.0' });
+    
+     /**
+    * HTTP GET /api/app
+    * Returns: Return the app information
     */
-    app.get('/api/dashboard', function (request, response) {
-        response.json(200, { version: versionInfo });
+    app.get('/api/app', function (request, response) {
+        response.json(200, { appInformation: appInformation });
     });
 };
