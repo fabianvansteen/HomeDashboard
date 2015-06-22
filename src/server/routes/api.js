@@ -12,11 +12,19 @@ exports.addRoutes = function (app, config) {
 
     var appInformation = new AppInformation({ application: 'Home dashboard', version: '1.0.0' });
     
-     /**
-    * HTTP GET /api/app
-    * Returns: Return the app information
-    */
+    /**
+   * HTTP GET /api/app
+   * Returns: Return the app information
+   */
     app.get('/api/app', function (request, response) {
-        response.json(200, { appInformation: appInformation });
+        response.status(200).json({ appInformation: appInformation });
+    });
+    
+    /**
+   * HTTP GET /api/bookmarks
+   * Returns: Return the bookmarks
+   */
+    app.get('/api/bookmarks', function (request, response) {
+        response.status(200).sendFile('bookmarks.json', { root: 'src/server/data' });
     });
 };

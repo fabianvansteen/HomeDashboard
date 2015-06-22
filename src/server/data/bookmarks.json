@@ -1,0 +1,13 @@
+[{
+	"name": "Home",
+	"bookmarks": [
+		{ "name" : "Sonarr", "url" : "#" },
+		{ "name" : "Sabnzbd", "url" : "#" }
+	]
+},
+{
+	"name": "Home",
+	"bookmarks": [
+		{ "name" : "Sonarr2", "url" : "#" }
+	]
+}]

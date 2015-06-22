@@ -9,6 +9,10 @@
                 when("/dashboard", {
                 templateUrl: "app/partials/dashboard.html",
                 controller: "dashboardController"
+            }).
+                when("/bookmarks", {
+                templateUrl: "app/partials/bookmarks.html",
+                controller: "bookmarkController"
             })
                 .otherwise({
                 redirectTo: "/dashboard"

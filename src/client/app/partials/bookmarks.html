@@ -1,0 +1,19 @@
+<div class="container-fluid bookmarks">
+	<div class="row">
+        <div class="col-md-12">
+			<h1 class="page-header">Bookmarks</h1>
+		</div>
+		
+		<div class="col-md-4" ng-repeat="group in groups">			
+			<div class="bookmark">
+				<div class="name">{{group.name}}</div>
+				<div class="content">
+					<lu class="list-unstyled">
+						<li ng-repeat="bookmark in group.bookmarks"><a>{{bookmark.name}}</a></li>
+					</lu>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
