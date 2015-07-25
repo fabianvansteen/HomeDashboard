@@ -4,22 +4,34 @@
             <h1 class="page-header">Dashboard</h1>
             <div class="tile-container">
                 <div class="tile-large">
+                    <h4>Weather report</h4>
+                    
+                    <div ng-controller="WeatherCtrl">
+                        <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
+                        <h1>{{ weather.temp.current | temp:2 }}</h1>
+                   </div>
+                </div>
+                <div class="tile-square-y">
                     <div ng-controller="TimeController">
                         <h1>{{ clock | date:'d MMMM yyyy H:mm'}}</h1>
                     </div>
-                    <br/>
-                    <div ng-controller="WeatherCtrl">
-                        <h4>Weather in Salzburg, Austria</h4>
-                        <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
-                        <h5>Current: {{ weather.temp.current | temp:2 }}</h5>min: {{ weather.temp.min | temp }}, max: {{ weather.temp.max | temp }}</div>
                 </div>
                 <div class="tile-square">
+                    <h4>Living room</h4>
                     <h1>21&deg;</h1>
-                    <h4>Woonkamer</h4>
                 </div>
                 <div class="tile-square">
-                    <h1>23&deg;</h1>
-                    <h4>Studiekamer</h4>
+                    <h4>Outside</h4>
+                    <h1>18.3&deg;</h1>
+                </div>
+                 <div class="tile-square-y">
+                     <h4>Home Status</h4>
+                    <h1>Occupied</h1>
+                </div>
+                <div class="tile-large">
+                    <h4>Today</h4>    
+                    <h5>Hardlopen 10:00 - 11:00</h5>
+                    <h5>Training 18:00 - 21:00</h5> 
                 </div>
             </div>
         </div>
