@@ -6,9 +6,9 @@ var concat = require('gulp-concat');
 var minifyCss = require('gulp-minify-css');
 
 gulp.task('less', function () {
-  return gulp.src('src/client/less/**/*.less')
+  return gulp.src('public/less/**/*.less')
     .pipe(less())
     .pipe(minifyCss())
     .pipe(concat('site.min.css'))
-    .pipe(gulp.dest('dist/client/assets/css'));
+    .pipe(gulp.dest('public/css/'));
 });

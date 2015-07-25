@@ -1,7 +1,10 @@
 var winston = require('winston');
+var fs = require('fs');
 
 function init()
 {	
+	fs.mkdir('logs');
+			
 	winston.add(winston.transports.File, {
 		filename: 'logs/error.logs'
 	});

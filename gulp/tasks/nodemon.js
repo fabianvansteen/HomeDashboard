@@ -13,17 +13,17 @@ gulp.task('nodemon', function (cb) {
   return nodemon({
 
     // nodemon our expressjs server
-    script: 'server.js',
+    script: 'app.js',
 
     // watch core server file(s) that require server restart on change
-    watch: ['src/**/*.*']
+    watch: ['**/*.*']
   })
     .on('start', function onStart() {
         // ensure start only got called once
         if (!called) { cb(); }
         called = true;
     })
-    .on('restart', 'compile', function onRestart() {
+    .on('restart', ['compile'], function onRestart() {
         // reload connected browsers after a slight delay
         setTimeout(function reload() {
             browserSync.reload({

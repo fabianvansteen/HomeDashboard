@@ -3,4 +3,4 @@
 var gulp = require('gulp');
 var path = require('path');
 
-gulp.task('compile', ['jshint', 'less', 'copy']);
+gulp.task('compile', ['less', 'copy']);

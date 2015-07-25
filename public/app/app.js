@@ -7,16 +7,12 @@
         function ($routeProvider) {
             $routeProvider.
                 when("/dashboard", {
-                templateUrl: "app/partials/dashboard.html",
-                controller: "dashboardController"
-            }).
-                when("/bookmarks", {
-                templateUrl: "app/partials/bookmarks.html",
-                controller: "bookmarkController"
-            })
+                    templateUrl: "app/partials/dashboard.html",
+                    controller: "dashboardController"
+                })
                 .otherwise({
-                redirectTo: "/dashboard"
-            });
+                    redirectTo: "/dashboard"
+                });
         }]);
 
     homeApp.factory('weatherService', function ($http) {

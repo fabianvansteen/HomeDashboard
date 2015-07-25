@@ -1,5 +1,3 @@
-'use scrict';
-
 module.exports = {
   "server": {
     
@@ -10,7 +8,7 @@ module.exports = {
     "securePort": 5433,   
                                
     // The folder that contains the application files (note that the files are in a different repository) - relative to this file
-    "distFolder": 'dist/client', 
+    "publicFolder": '/public', 
                   
     // The base url from which we serve static files (such as js, css and images)
     "staticUrl": '/static'
