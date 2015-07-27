@@ -1,7 +1,0 @@
-'use strict';
-
-var gulp = require('gulp');
-
-gulp.task('test', function () {
-  console.log('not implemented');
-});

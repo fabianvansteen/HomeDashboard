@@ -5,11 +5,10 @@
             <div class="tile-container">
                 <div class="tile-large">
                     <h4>Weather report</h4>
-                    
                     <div ng-controller="WeatherCtrl">
                         <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
                         <h1>{{ weather.temp.current | temp:2 }}</h1>
-                   </div>
+                    </div>
                 </div>
                 <div class="tile-square-y">
                     <div ng-controller="TimeController">
@@ -24,14 +23,14 @@
                     <h4>Outside</h4>
                     <h1>18.3&deg;</h1>
                 </div>
-                 <div class="tile-square-y">
-                     <h4>Home Status</h4>
+                <div class="tile-square-y">
+                    <h4>Home Status</h4>
                     <h1>Occupied</h1>
                 </div>
                 <div class="tile-large">
-                    <h4>Today</h4>    
+                    <h4>Today</h4>
                     <h5>Hardlopen 10:00 - 11:00</h5>
-                    <h5>Training 18:00 - 21:00</h5> 
+                    <h5>Training 18:00 - 21:00</h5>
                 </div>
             </div>
         </div>

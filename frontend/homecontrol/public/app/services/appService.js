@@ -4,14 +4,29 @@
 
     function AppService($http) {
 
+        
+
+
         function getAppInformation(callback) {
+            
+            var url = '/weather';
+            $http({
+                url: url
+            })
+            .success(function (data) {
+                console.log(data);
+            })
+            .error(function (data) {
+                
+            });
+            
             $http.get(appUrl)
                 .success(function (data) {
-                callback(null, data);
-            })
+                    callback(null, data);
+                })
                 .error(function (data) {
-                callback(data, null);
-            });
+                    callback(data, null);
+                });
         }
 
         return {

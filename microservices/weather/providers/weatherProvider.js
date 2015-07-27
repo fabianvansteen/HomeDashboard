@@ -1,5 +1,4 @@
 var http = require('http');
-var logger = require('../utils/logger');
 
 function WeatherProvider() {
 	this.getWeatherInformation = getWeatherInformation;
