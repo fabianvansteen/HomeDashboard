@@ -3,12 +3,8 @@
         <div class="col-lg-12">
             <h1 class="page-header">Dashboard</h1>
             <div class="tile-container">
-                <div class="tile-large">
-                    <h4>Weather report</h4>
-                    <div ng-controller="WeatherCtrl">
-                        <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
-                        <h1>{{ weather.temp.current | temp:2 }}</h1>
-                    </div>
+                <div ng-controller="dashboardController" class="tile-large">
+                    <div ng-bind-html="weatherWidget"></div>
                 </div>
                 <div class="tile-square-y">
                     <div ng-controller="TimeController">

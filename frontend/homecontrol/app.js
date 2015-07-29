@@ -1,5 +1,7 @@
+/* global setHeader */
 var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -14,11 +16,21 @@ app.get('/version', function (request, response) {
 });
 
 /**
+* HTTP GET /favicon.ico
+* Returns: Return the fav icon.
+*/
+var faviconPath = path.join(publicFolder, '/favicon.ico')
+app.use(favicon(faviconPath));
+
+
+app.use(express.static(publicFolder));
+
+/**
   * HTTP GET /
   * Returns: Return the index.html page
   */
-app.get('/', function (req, res) {
-  res.sendFile('index.html', { root: publicFolder });
+app.get('/', function (request, response) {
+	response.sendFile('index.html', { root: publicFolder });
 });
 
 

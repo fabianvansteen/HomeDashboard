@@ -3,6 +3,16 @@
 
     var homeApp = angular.module("homeDashboard", ["ngRoute"]);
 
+homeApp.config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'http://localhost:8082/**'
+  ]);
+});
+
+
     homeApp.config(["$routeProvider",
         function ($routeProvider) {
             $routeProvider.
