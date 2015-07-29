@@ -2,6 +2,8 @@ var express = require('express');
 
 var app = express();
 
+app.set('view engine', 'jade');
+
 /**
   * HTTP GET /api/version
   * Returns: Return the application version information.
@@ -10,7 +12,12 @@ app.get('/version', function (request, response) {
 	response.status(200).json(getVersionInformation());
 });
 
-var server = app.listen(8083, function () {
+app.get('/temperature', function (req, res) {
+	
+	res.render('temperature-widget', { 'room': req.query.room });
+});
+
+var server = app.listen(20011, function () {
 
 	var host = server.address().address;
 	var port = server.address().port;
@@ -19,13 +26,13 @@ var server = app.listen(8083, function () {
 });
 
 function getVersionInformation() {
-	var pjson = require('./package.json');
+	var json = require('./package.json');
 
 	return {
-		'name': pjson.name,
-		'version': pjson.version,
-		'description': pjson.description,
-		'author': pjson.author,
-		'license': pjson.license
+		'name': json.name,
+		'version': json.version,
+		'description': json.description,
+		'author': json.author,
+		'license': json.license
 	};
 }

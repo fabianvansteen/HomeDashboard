@@ -40,7 +40,7 @@ app.get('/weather', function (request, response) {
 	response.render('weather');
 });
 
-var server = app.listen(8082, function () {
+var server = app.listen(20010, function () {
 
 	var host = server.address().address;
 	var port = server.address().port;

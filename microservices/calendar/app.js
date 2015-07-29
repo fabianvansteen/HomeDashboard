@@ -7,13 +7,7 @@ var express = require('express');
 
 var app = express();
 
-app.use(function(req, res, next){
-  res.status(404);
-
-  // default to plain-text. send()
-  res.type('txt').send('Not found');
-});
-
+app.set('view engine', 'jade');
 
 /**
   * HTTP GET /api/version
@@ -23,7 +17,18 @@ app.get('/version', function (request, response) {
 	response.status(200).json(getVersionInformation());
 });
 
-var server = app.listen(8084, function () {
+app.get('/calendar', function (req, res) {
+  res.render('calendar-widget', { 'events' :
+	  [{
+		  'name': 'Sporten'
+	  },
+	  {
+		  'name': 'Sporten 2'
+	  }]
+	  });
+});
+
+var server = app.listen(20012, function () {
 
 	var host = server.address().address;
 	var port = server.address().port;
@@ -32,13 +37,13 @@ var server = app.listen(8084, function () {
 });
 
 function getVersionInformation() {
-	var pjson = require('./package.json');
+	var json = require('./package.json');
 
 	return {
-		'name': pjson.name,
-		'version': pjson.version,
-		'description': pjson.description,
-		'author': pjson.author,
-		'license': pjson.license
+		'name': json.name,
+		'version': json.version,
+		'description': json.description,
+		'author': json.author,
+		'license': json.license
 	};
 }

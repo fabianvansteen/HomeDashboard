@@ -1,0 +1,42 @@
+[
+    {
+        // Proxy
+        "uid": "proxy",
+        "append": true,
+        "watch": false,
+        "script": "app.js",
+        "sourceDir": "proxy"
+    },
+    {
+        // Dashboard
+        "uid": "dashboard",
+        "append": true,
+        "watch": false,
+        "script": "app.js",
+        "sourceDir": "frontend/homecontrol"
+    },
+    {
+        // Microservice weather
+        "uid": "microservice-weather",
+        "append": true,
+        "watch": false,
+        "script": "app.js",
+        "sourceDir": "microservices/weather"
+    },
+    {
+        // Microservice calendar
+        "uid": "microservice-calendar",
+        "append": true,
+        "watch": false,
+        "script": "app.js",
+        "sourceDir": "microservices/calendar"
+    },
+    {
+        // temperature temperature
+        "uid": "microservice-temperature",
+        "append": true,
+        "watch": false,
+        "script": "app.js",
+        "sourceDir": "microservices/temperature"
+    }
+]

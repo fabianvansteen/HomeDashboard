@@ -1,7 +1,7 @@
 {
-  "name": "microservice-calendar",
+  "name": "proxy",
   "version": "1.0.0",
-  "description": "Microservice for retrieving calendar information.",
+  "description": "Proxy for the node express applications",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,6 @@
   "author": "Fabian van Steen",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.1",
-    "jade": "^1.11.0",
-    "winston": "^1.0.1"
+    "http-proxy": "^1.11.1"
   }
 }
