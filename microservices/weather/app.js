@@ -1,31 +1,10 @@
 var express = require('express');
 var logger = require('./utils/logger');
+var WeatherProvider = require('./providers/weatherProvider');
 
 var app = express();
 
-app.set('view engine', 'jade');
-
-
-
-// Add headers
-app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5003');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
-    next();
-});
+var port = 20010;
 
 /**
   * HTTP GET /api/version
@@ -35,12 +14,23 @@ app.get('/version', function (request, response) {
 	response.status(200).json(getVersionInformation());
 });
 
-app.get('/weather', function (request, response) {
-	
+app.get('/template', function (request, response) {
+
 	response.render('weather');
 });
 
-var server = app.listen(20010, function () {
+app.get('/weather', function (req, res) {
+    var weatherWeather = new WeatherProvider();
+
+    weatherWeather.getWeatherInformation(function (success, error) {
+
+		var weatherData = mapWeatherData(success);
+
+        res.status(200).json(weatherData)
+    });
+});
+
+var server = app.listen(port, function () {
 
 	var host = server.address().address;
 	var port = server.address().port;
@@ -58,5 +48,15 @@ function getVersionInformation() {
 		'author': pjson.author,
 		'license': pjson.license
 	};
+}
+
+function mapWeatherData(weatherData) {
+	return {
+		'weatherType': weatherData.weather[0].main,
+		'description' : weatherData.weather[0].description,
+		'temperature': weatherData.main.temp,
+		'pressure': weatherData.main.pressure,
+		'humidity': weatherData.main.humidity
+	}
 }
 

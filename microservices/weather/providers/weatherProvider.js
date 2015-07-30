@@ -4,12 +4,12 @@ function WeatherProvider() {
 	this.getWeatherInformation = getWeatherInformation;
 }
 
-function getWeatherInformation(succes, error) {
+function getWeatherInformation(callback) {
 
 	var options = {
 		host: 'api.openweathermap.org',
 		port: 80,
-		path: '/data/2.5/weather?q=Dordrecht,NL'
+		path: '/data/2.5/weather?q=Dordrecht,nl&units=metric'
 	};
 
 	http.get(options, function (response) {
@@ -18,10 +18,13 @@ function getWeatherInformation(succes, error) {
 			function (data) {
 				var json = JSON.parse(data);
 				
-				succes(json);
+				callback(json, null);
 			});
 		
-	}).on("error", error);
+	}).on("error", function(error)
+	{
+		callback(null, error);
+	});
 }
 
 module.exports = WeatherProvider;
