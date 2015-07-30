@@ -1,5 +1,6 @@
+"use strict";
+
 (function (angular) {
-    "use strict";
 
     function TimeController($scope, $timeout) {
         $scope.clock = "loading clock..."; // initialise the time variable

@@ -1,14 +1,15 @@
+"use strict";
+
 (function (angular) {
-    "use strict";
 
-    function dashboardController(dashboardService, $scope, $sce) {
+    function dashboardController(weatherService, $scope, $sce) {
 
-        dashboardService.getWeatherWidget(function (data, error) {
-            $scope.weatherWidget = $sce.trustAsHtml(data);
+        weatherService.retrieveWeather(function (err, result) {
+            $scope.weather = result;
         });
     }
 
-    dashboardController.$inject = ["dashboardService", "$scope", '$sce'];
+    dashboardController.$inject = ["weatherService", "$scope"];
 
     angular.module("homeDashboard")
         .controller("dashboardController", dashboardController);

@@ -3,8 +3,20 @@
         <div class="col-lg-12">
             <h1 class="page-header">Dashboard</h1>
             <div class="tile-container">
-                <div ng-controller="dashboardController" class="tile-large">
-                    <div ng-bind-html="weatherWidget"></div>
+                <div ng-controller="dashboardController" class="weather-widget tile-large">
+                    <div>Weather report</div>
+                    <div>
+                        <div>{{ weather.temperature }}</div>
+                        <div>{{ weather.weatherType }}</div>
+                        <div>{{ weather.description }}</div>
+                    </div>
+                    <div ng-repeat="value in weather.forecast">
+                        <div>
+                            <div>{{value.date | date : 'EEE'}}</div>
+                            <div>{{value.weatherType}}</div>
+                            <div>{{value.temperature}}</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="tile-square-y">
                     <div ng-controller="TimeController">
