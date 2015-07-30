@@ -1,29 +1,45 @@
+'use strict';
+
+/**
+ * Module dependencies.
+ */
 var assert = require('assert');
 var WeatherProvider = require('../providers/weatherProvider');
 
-describe('Providers tests', function () {
+/**
+ * Weather provider tests.
+ */
+describe('Weather provider tests', function () {
 
-    it('Weather provider', function (done) {		
+    it('retrieve current weather returns result', function (done) {		
 		
 		// Arrange
 		var weatherProvider = new WeatherProvider();
 		
 		// Act
-		weatherProvider.getWeatherInformation(
-			function (data) {
-												
+		weatherProvider.retrieveCurrentWeather(
+			function (success, error) {
+													
 				// Assert
-				assert.equal(data.name, 'Dordrecht');
-				
-				done();
-			},
-			function (error)
-			{				
-				// Assert
-				//assert.ok(actual, 'this will fail');
-			}
-		);
-		
-    });
+				assert.ok(success, 'Request is null');
 
+				done();
+			});
+    });
+	
+    it('retrieve forecast weather returns result', function (done) {		
+		
+		// Arrange
+		var weatherProvider = new WeatherProvider();
+		
+		// Act
+		weatherProvider.retrieveForecast(
+			function (success, error) {
+													
+				// Assert
+				assert.ok(success, 'Request is null');
+
+				done();
+			});
+    });
 });

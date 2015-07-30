@@ -1,10 +1,14 @@
-var express = require('express');
-var logger = require('./utils/logger');
-var WeatherProvider = require('./providers/weatherProvider');
+'use strict';
 
-var app = express();
+/**
+ * Module dependencies.
+ */
+var express = require('express'),
+	logger = require('./utils/logger'),
+	WeatherHandler = require('./handlers/weatherHandler');
 
-var port = 20010;
+var app = express(),
+	port = 20010;
 
 /**
   * HTTP GET /api/version
@@ -14,20 +18,15 @@ app.get('/version', function (request, response) {
 	response.status(200).json(getVersionInformation());
 });
 
-app.get('/template', function (request, response) {
-
-	response.render('weather');
-});
-
 app.get('/weather', function (req, res) {
-    var weatherWeather = new WeatherProvider();
-
-    weatherWeather.getWeatherInformation(function (success, error) {
-
-		var weatherData = mapWeatherData(success);
-
-        res.status(200).json(weatherData)
-    });
+    var handler = new WeatherHandler();
+	
+	handler.retrieveWeather(
+		function(err, result)
+		{			
+			res.status(200).json(result);
+		}
+	);
 });
 
 var server = app.listen(port, function () {
@@ -48,15 +47,5 @@ function getVersionInformation() {
 		'author': pjson.author,
 		'license': pjson.license
 	};
-}
-
-function mapWeatherData(weatherData) {
-	return {
-		'weatherType': weatherData.weather[0].main,
-		'description' : weatherData.weather[0].description,
-		'temperature': weatherData.main.temp,
-		'pressure': weatherData.main.pressure,
-		'humidity': weatherData.main.humidity
-	}
 }
 
