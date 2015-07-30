@@ -5,7 +5,8 @@
  */
 var express = require('express'),
 	logger = require('./utils/logger'),
-	WeatherHandler = require('./handlers/weatherHandler');
+	WeatherHandler = require('./handlers/weatherHandler'),
+	VersionHandler = require('./handlers/versionHandler');
 
 var app = express(),
 	port = 20010;
@@ -15,7 +16,11 @@ var app = express(),
   * Returns: Return the application version information.
   */
 app.get('/version', function (request, response) {
-	response.status(200).json(getVersionInformation());
+	var handler = new VersionHandler();
+	
+	var version = handler.retrieveVersion();
+	
+	response.status(200).json(version);
 });
 
 app.get('/weather', function (req, res) {
@@ -36,16 +41,4 @@ var server = app.listen(port, function () {
 
 	console.log('listening at http://%s:%s', host, port);
 });
-
-function getVersionInformation() {
-	var pjson = require('./package.json');
-
-	return {
-		'name': pjson.name,
-		'version': pjson.version,
-		'description': pjson.description,
-		'author': pjson.author,
-		'license': pjson.license
-	};
-}
 
