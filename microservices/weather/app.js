@@ -5,11 +5,11 @@
  */
 var express = require('express'),
 	logger = require('./utils/logger'),
+	config = require('./config'),
 	WeatherHandler = require('./handlers/weatherHandler'),
 	VersionHandler = require('./handlers/versionHandler');
 
-var app = express(),
-	port = 20010;
+var app = express();
 
 /**
   * HTTP GET /api/version
@@ -34,7 +34,7 @@ app.get('/weather', function (req, res) {
 	);
 });
 
-var server = app.listen(port, function () {
+var server = app.listen(config.express.port, function () {
 
 	var host = server.address().address;
 	var port = server.address().port;

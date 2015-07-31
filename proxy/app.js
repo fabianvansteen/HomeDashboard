@@ -8,7 +8,7 @@ var http = require('http'),
 	httpProxy = require('http-proxy'),
 	express = require('express'),
 	VersionHandler = require('./handlers/versionHandler'),
-	config = require('./config.json');
+	config = require('./config');
 
 var proxyPort = config.proxy.port,
 	expressPort = config.express.port,
