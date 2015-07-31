@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 var express = require('express'),
+	config = require('./config'),
 	VersionHandler = require('./handlers/versionHandler');
 
-var app = express(),
-	port = 20011;
+var app = express();
 
 /**
   * HTTP GET /api/version
@@ -18,14 +18,14 @@ app.get('/version', function (req, res) {
 
 	var version = handler.retrieveVersion();
 
-	res.status(200).json(version);
+	res.status(200).jsonp(version);
 });
 
 app.get('/temperature', function (req, res) {
-	res.status(200).json({ 'room': req.query.room, 'temperature': 21.5 });
+	res.status(200).jsonp({ 'room': req.query.room, 'temperature': 21.5 });
 });
 
-var server = app.listen(port, function () {
+var server = app.listen(config.express.port, function () {
 
 	var host = server.address().address;
 	var port = server.address().port;

@@ -20,7 +20,7 @@ app.get('/version', function (request, response) {
 	
 	var version = handler.retrieveVersion();
 	
-	response.status(200).json(version);
+	response.status(200).jsonp(version);
 });
 
 app.get('/weather', function (req, res) {
