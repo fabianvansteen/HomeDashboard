@@ -29,13 +29,7 @@ app.get('/weather', function (req, res) {
 	handler.retrieveWeather(
 		function(err, result)
 		{	
-			if (req.query.callback)
-			{		
-				res.status(200).jsonp(result);
-				return;
-			}
-			res.status(200).json(result);
-			return;
+			res.status(200).jsonp(result);
 		}
 	);
 });
