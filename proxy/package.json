@@ -1,7 +1,7 @@
 {
   "name": "proxy",
   "version": "1.0.0",
-  "description": "Proxy for the node express applications",
+  "description": "Proxy for the node express applications.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "author": "Fabian van Steen",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.13.1",
     "http-proxy": "^1.11.1"
   }
 }

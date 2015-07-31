@@ -1,0 +1,26 @@
+{
+	"proxy" : {
+		"port" : 19000
+	},
+	"express" : {
+		"port" : 19001
+	},
+	"routes": {
+		"dashboard.home.dev": {
+			"host": "localhost",
+			"port": 20000
+		},
+		"weather.home.dev": {
+			"host": "localhost",
+			"port": 20010
+		},
+		"temperature.home.dev": {
+			"host": "localhost",
+			"port": 20011
+		},
+		"calendar.home.dev": {
+			"host": "localhost",
+			"port": 20012
+		}
+	}
+}
